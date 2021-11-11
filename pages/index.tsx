@@ -1,9 +1,8 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
+import { MainLayout } from '../layouts/MainLayout';
 
 const Home: NextPage = () => {
-  return <div></div>;
+  return <MainLayout></MainLayout>;
 };
 
 export default Home;
