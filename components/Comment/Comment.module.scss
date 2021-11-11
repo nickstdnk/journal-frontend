@@ -1,0 +1,39 @@
+.comment {
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  img {
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin-left: 10px;
+  }
+
+  b {
+    font-size: 16px;
+  }
+
+  span {
+    font-style: 12px;
+    opacity: 0.8;
+    margin-left: 10px;
+  }
+}
+.text {
+  margin-bottom: 10px;
+}
+.replyBtn {
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 5px;
+
+  &:hover {
+    color: #346eb8;
+  }
+}
