@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import { FC } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 import styles from './SideComments.module.scss';
 import { Box } from '@mui/material';
@@ -21,9 +21,7 @@ export const CommentItem: FC<CommentItemProps> = ({ user, text, post }) => {
   return (
     <Box className={styles.commentItem}>
       <Box className={styles.userInfo}>
-        <Image
-          width={24}
-          height={24}
+        <img
           src="https://leonardo.osnova.io/598fc957-a3f6-598c-b6f9-a033c3941d12/-/scale_crop/64x64/-/format/webp/"
           alt="User avatar"
         />
