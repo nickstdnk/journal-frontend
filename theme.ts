@@ -4,7 +4,7 @@ import { createTheme } from "@mui/material";
 export const theme = createTheme({
   palette: {
     primary: {
-      main: '#000'
+      main: '#4683d9'
     }
   },
   components: {
@@ -42,7 +42,6 @@ export const theme = createTheme({
         },  
         contained: {
           backgroundColor: 'white',
-          color: 'black',
           boxShadow:
             '0 1px 1px rgb(0 0 0 / 15%), 0 4px 7px rgb(0 0 0 / 5%), 0 -1px 0 rgb(0 0 0 / 5%), -1px 0 0 rgb(0 0 0 / 5%), 1px 0 0 rgb(0 0 0 / 5%)',
           '&:hover': {

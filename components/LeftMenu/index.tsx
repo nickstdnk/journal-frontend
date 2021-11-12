@@ -27,7 +27,7 @@ export const LeftMenu: FC = () => {
           <li key={obj.path}>
             <Link href={obj.path}>
               <a>
-                <Button>
+                <Button color="inherit">
                   {obj.icon}
                   {obj.text}
                 </Button>

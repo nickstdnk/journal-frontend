@@ -31,9 +31,13 @@ export const Header: FC = () => {
           <SearchIcon />
           <input placeholder="Поиск" />
         </Box>
-        <Button variant="contained" className={styles.createButton}>
-          Новая запись
-        </Button>
+        <Link href="/write">
+          <a>
+            <Button variant="contained" color="inherit" className={styles.createButton}>
+              Новая запись
+            </Button>
+          </a>
+        </Link>
       </Box>
       <Box className="d-flex align-center">
         <IconButton>
