@@ -1,17 +1,52 @@
-import { FC } from 'react';
-import Link from 'next/link';
-import { Avatar, Box, Button, IconButton, Paper } from '@mui/material';
+import {FC, useEffect, useState} from 'react'
+import Link from 'next/link'
+import {Avatar, Box, Button, IconButton, Menu, MenuItem, Paper} from '@mui/material'
 import {
+  KeyboardArrowDownOutlined as ArrowIcon,
   Menu as MenuIcon,
+  NotificationsNoneOutlined as NotificationIcon,
+  PersonOutline as UserIcon,
   Search as SearchIcon,
   SmsOutlined as MessageIcon,
-  NotificationsNoneOutlined as NotificationIcon,
-  KeyboardArrowDownOutlined as ArrowIcon,
-} from '@mui/icons-material';
+} from '@mui/icons-material'
 
-import styles from './Header.module.scss';
+import styles from './Header.module.scss'
+
+import {AuthDialog} from '../AuthDialog'
+import {useAppSelector} from '../../redux/hooks'
+import {selectUserData} from '../../redux/slices/user'
+import {destroyCookie} from 'nookies'
 
 export const Header: FC = () => {
+  const userData = useAppSelector(selectUserData);
+  const [authVisible, setAuthVisible] = useState(false);
+
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+    destroyCookie(null, 'token', {
+      path: '/',
+    });
+  };
+
+  const openAuthDialog = () => {
+    setAuthVisible(true);
+  };
+
+  const closeAuthDialog = () => {
+    setAuthVisible(false);
+  };
+
+  useEffect(() => {
+    if (authVisible && userData) {
+      setAuthVisible(false);
+    }
+  }, [authVisible, userData]);
+
   return (
     <Paper classes={{ root: styles.root }} elevation={0}>
       <Box className="d-flex align-center">
@@ -46,18 +81,32 @@ export const Header: FC = () => {
         <IconButton>
           <NotificationIcon />
         </IconButton>
-        <Link href="/profile/1">
-          <a className="d-flex align-center">
-            <Avatar
-              className={styles.avatar}
-              alt="Nikolay Stadnik"
-              src="https://leonardo.osnova.io/5d36a3a0-6e0b-5695-babd-3d72a73a30d8/-/scale_crop/108x108/-/format/webp/"
-            />
-          </a>
-        </Link>
-
-        <ArrowIcon />
+        {userData ? (
+          <>
+            <Link href="/profile/1">
+              <a className="d-flex align-center">
+                <Avatar
+                  className={styles.avatar}
+                  alt="Nikolay Stadnik"
+                  src="https://leonardo.osnova.io/5d36a3a0-6e0b-5695-babd-3d72a73a30d8/-/scale_crop/108x108/-/format/webp/"
+                />
+              </a>
+            </Link>
+            <IconButton onClick={handleClick}>
+              <ArrowIcon />
+            </IconButton>
+            <Menu anchorEl={anchorEl} onClose={handleClose} open={open}>
+              <MenuItem onClick={handleClose}>Выйти</MenuItem>
+            </Menu>
+          </>
+        ) : (
+          <Box className={styles.loginButton} onClick={openAuthDialog}>
+            <UserIcon />
+            Войти
+          </Box>
+        )}
       </Box>
+      <AuthDialog onClose={closeAuthDialog} visible={authVisible} />
     </Paper>
   );
 };

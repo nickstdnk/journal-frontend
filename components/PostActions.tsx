@@ -14,7 +14,8 @@ const styles: CSSProperties = {
   top: '5',
   width: '100%',
   listStyle: 'none',
-  padding: '0',
+  padding: '6px',
+  marginLeft: '6px',
   margin: '0',
 };
 

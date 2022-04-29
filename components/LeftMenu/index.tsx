@@ -10,6 +10,7 @@ import {
 } from '@mui/icons-material';
 
 import styles from './LeftMenu.module.scss';
+import { useRouter } from 'next/router';
 
 const menu = [
   { text: 'Популярное', icon: <FireIcon />, path: '/' },
@@ -20,6 +21,7 @@ const menu = [
 ];
 
 export const LeftMenu: FC = () => {
+  const router = useRouter();
   return (
     <Box className={styles.menu}>
       <ul>
@@ -27,7 +29,7 @@ export const LeftMenu: FC = () => {
           <li key={obj.path}>
             <Link href={obj.path}>
               <a>
-                <Button color="inherit">
+                <Button variant={router.asPath === obj.path ? 'contained' : 'text'} color="inherit">
                   {obj.icon}
                   {obj.text}
                 </Button>

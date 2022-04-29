@@ -1,0 +1,111 @@
+.dialog {
+  display: flex;
+  flex: 0 0 100%;
+}
+
+.images {
+  background-image: url(https://cutewallpaper.org/21/boruto-supreme/Boruto-by-ferstra-on-DeviantArt.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  width: 212px;
+  height: 600px;
+  display: block;
+  padding: 25px 35px;
+}
+
+.logo {
+  width: 35px;
+  height: 35px;
+}
+.auth {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 50px 24px 50px;
+  width: 428px;
+  height: 600px;
+  flex-grow: 1;
+}
+
+.closeIcon {
+  left: auto;
+  bottom: auto;
+  right: 0;
+  top: 0;
+  padding: 16px;
+  opacity: 0.5;
+  position: absolute;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    opacity: 1 !important;
+  }
+}
+
+.title {
+  margin-top: 114px;
+  margin-bottom: 16px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.content {
+  button {
+    height: 48px;
+    position: relative;
+    svg {
+      position: absolute;
+      left: 10px;
+      height: 24px;
+      width: 24px;
+    }
+  }
+}
+
+.miniButton {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+
+  svg {
+    height: 24px;
+  }
+}
+
+.socialButton {
+  height: 48px !important;
+  width: 101.33px;
+  overflow: hidden;
+}
+
+.registerContent {
+  width: 70px;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 210px;
+  right: 0;
+  margin: 18px 20px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.inputBlock {
+  input {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    background-color: (rgba(0, 0, 0, 0.05));
+    font-size: 16px;
+    padding-left: 10px;
+    transition: all 0.1s ease-in-out;
+    border: 1px solid transparent;
+    &:hover,
+    &:focus {
+      background-color: #fff;
+      border-color: #4683d9;
+      box-shadow: 0 0 0 3px rgb(70 131 217 / 12%);
+    }
+  }
+}
